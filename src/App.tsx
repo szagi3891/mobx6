@@ -10,7 +10,7 @@ class Timer {
         makeAutoObservable(this);
     }
 
-    increaseTimer() {
+    increaseTimer = () => {
         this.secondsPassedInner += 1;
     }
 
@@ -21,6 +21,10 @@ class Timer {
     get secondsPassed(): number {
         return this.secondsPassedInner;
     }
+
+    get double() {
+        return this.secondsPassed * 2
+    }
 }
 
 // const gg: Array<number> = [];
@@ -30,9 +34,7 @@ export const App = observer(() => {
     const [ state ] = React.useState(() => new Timer());
 
     React.useEffect(() => {
-        const timer = setInterval(() => {
-            state.increaseTimer();
-        }, 1000);
+        const timer = setInterval(state.increaseTimer, 1000);
 
         return () => {
             clearInterval(timer);
@@ -41,7 +43,7 @@ export const App = observer(() => {
 
     return (
         <div>
-            dsadsa { state.secondsPassed }
+            --- === dsadsa { state.secondsPassed } === { state.double } kkk === ---
         </div>
     );
 });
