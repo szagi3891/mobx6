@@ -2,7 +2,6 @@ import React from 'react';
 import { makeAutoObservable } from "mobx"
 import { observer } from 'mobx-react';
 
-// Model the application state
 class Timer {
     private secondsPassedInner = 0;
 
@@ -43,7 +42,7 @@ export const App = observer(() => {
 
     return (
         <div>
-            --- === dsadsa { state.secondsPassed } === { state.double } kkk === ---
+            {"<<"} --- === kkk === { state.secondsPassed } === { state.double } === kkk === --- {">>"}
         </div>
     );
 });
